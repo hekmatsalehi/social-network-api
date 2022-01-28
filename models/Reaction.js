@@ -1,5 +1,7 @@
 const { Schema, Types } = require('mongoose')
 
+// This will be a subdocument schema will be used as
+// reaction in Thought model
 const reactionSchema = new Schema(
     {
         reactionId: {
