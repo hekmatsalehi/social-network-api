@@ -16,6 +16,7 @@ module.exports = {
             .then((user) => {
                 if (!user) {
                     res.status(404).json({ message: 'User with provided Id does not exist!'})
+                    return;
                 }
                 res.json(user)
             })
@@ -38,6 +39,7 @@ module.exports = {
             .then((updatedUser) => {
                 if (!updatedUser) {
                     res.status(404).json({ message: 'User with provided Id does not exist!'})
+                    return;
                 }
                 res.json(updatedUser)
             })
@@ -49,6 +51,7 @@ module.exports = {
             .then((user) => {
                 if (!user) {
                     res.status(404).json({ message: 'User with provided Id does not exist!' })
+                    return;
                 }
                 res.status(200).json({ message: `User with id: ${req.params.userId} has been deleted!` })
             })
@@ -65,6 +68,7 @@ module.exports = {
             .then((friend) => {
                 if (!friend) {
                     res.status(400).json({ message: 'User with provided Id does not exist!' })
+                    return;
                 }
                 res.status(201).json(friend)
             })
@@ -82,6 +86,7 @@ module.exports = {
         .then((friend) => {
             if (!friend) {
                 res.status(400).json({ message: 'User with provided Id does not exist!' })
+                return;
             }
             res.status(200).json(friend)
         })
