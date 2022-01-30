@@ -87,11 +87,37 @@ module.exports = {
 
             })
             .catch((err) => res.status(500).json(err));
-
     },
-
-
-
-
-
+    // Add a thought reaction
+    addThoughtReaction(req, res) {
+        Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
+        { runValidators: true, new: true }
+        )
+        .then((thought) => {        
+            if (!thought) {
+                res.status(404).json({ message: 'Thought with provided Id does not exist!'})
+                return;
+            }
+            res.json(thought) 
+        })
+        .catch((err) => res.status(500).json(err));
+    },
+    // delete a reaction and pull it from reaction list
+    deleteThoughtReaction(req, res) {
+        Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+          { $pull: { reactions: { reactionId: req.params.reactionId } } },
+          { runValidators: true, new: true }
+        )
+          .then((thought) => {
+          if (!thought) {
+            res.status(404).json({ message: 'provided Id does not exist!'})
+            return;  
+          }
+          res.json(thought)
+          })
+          .catch((err) => res.status(500).json(err));
+      },
 }
