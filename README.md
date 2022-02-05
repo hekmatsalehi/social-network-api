@@ -11,7 +11,7 @@ This is the APIs for a social network web application where users can share, edi
 ## Installation
 Clone the social-netword-api repository to your local computer. Run ```npm install``` in the command line (Win) or terminal (Mac) to install the dependencies.
 ## Usage
-Open Command line (Win) or Terminal (Mac). Go to the social-netword-api folder and run ```node index.js``` or ```npm run dev``` to start the server. Finally open Insomnia or other platfrom of your choice to hit the routes.
+Open Command line (Win) or Terminal (Mac). Go to the social-network-api folder and run ```node index.js``` or ```npm run dev``` to start the server. Finally open Insomnia or other platfrom of your choice to hit the routes.
 
 ![Application Gif](./public/images/social-network-api.gif)
  
